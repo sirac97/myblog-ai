@@ -9,9 +9,9 @@ export default async function Home() {
     <main className="min-h-screen bg-gray-50 relative overflow-hidden">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
       <div className="absolute inset-0">
-        <div className="absolute -left-[20%] top-[10%] w-[50%] h-[50%] rounded-full bg-purple-200 blur-[150px] opacity-60"></div>
-        <div className="absolute -right-[20%] top-[20%] w-[50%] h-[50%] rounded-full bg-blue-200 blur-[150px] opacity-60"></div>
-        <div className="absolute left-[30%] bottom-[10%] w-[40%] h-[40%] rounded-full bg-pink-100 blur-[150px] opacity-40"></div>
+        <div className="absolute -left-[20%] top-[10%] w-[40%] h-[40%] rounded-full bg-purple-200 blur-[150px] opacity-60"></div>
+        <div className="absolute -right-[20%] top-[20%] w-[40%] h-[40%] rounded-full bg-blue-200 blur-[150px] opacity-60"></div>
+        <div className="absolute left-[30%] bottom-[10%] w-[30%] h-[40%] rounded-full bg-pink-100 blur-[150px] opacity-40"></div>
       </div>
       <div className="relative container mx-auto px-4 py-16">
         <div className="text-center mb-16">

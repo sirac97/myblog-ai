@@ -39,7 +39,7 @@ export default function BlogCard({ post }: BlogCardProps) {
 
   return (
     <Link href={`/post/${post.id}`}>
-      <article className="bg-white rounded-xl shadow-md hover:shadow-lg border border-gray-100 hover:border-blue-500 transition-all cursor-pointer overflow-hidden group duration-300">
+      <article className="relative bg-white rounded-xl shadow-md hover:shadow-lg border border-gray-100 hover:border-blue-500 transition-all cursor-pointer overflow-hidden group duration-300 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[3px] after:bg-blue-500 after:scale-x-0 group-hover:after:scale-x-100 after:transition-transform after:duration-300">
         <div className={`relative w-full aspect-[4/3] ${getGradientForPost(post.id)} group-hover:scale-105 transition-transform duration-300`}>
           <div className="absolute inset-0 opacity-20 mix-blend-overlay">
             <div className="w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.8),transparent_70%)]"></div>

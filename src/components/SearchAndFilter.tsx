@@ -28,12 +28,13 @@ export default function SearchAndFilter({
     return () => clearTimeout(timer);
   }, [searchQuery, onSearch]);
 
-  const categories = ['All', 'Design', 'Development', 'Technology'];
-  const tags = ['UX Design', 'Development', 'Career', 'Technology', 'Web'];
+  const categories = ['All', 'Design', 'Development', 'Technology', 'AI'];
+  const tags = ['UX Design', 'Development', 'Career', 'Technology', 'Web', 'AI'];
   const sortOptions = [
     { value: 'latest', label: 'Latest' },
     { value: 'oldest', label: 'Oldest' },
     { value: 'popular', label: 'Most Popular' },
+    { value: 'relevant', label: 'Most Relevant' },
   ];
 
   return (
@@ -45,13 +46,13 @@ export default function SearchAndFilter({
             placeholder="Search posts..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full px-4 py-2 pl-10 bg-white rounded-lg border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
+            className="w-full px-4 py-2 pl-10 bg-white rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
           />
           <HiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
         </div>
         <button
           onClick={() => setIsFilterOpen(!isFilterOpen)}
-          className="px-4 py-2 bg-white border border-gray-200 rounded-lg flex items-center gap-2 hover:border-blue-500 transition-all"
+          className="px-4 py-2 bg-white border border-gray-300 rounded-lg flex items-center gap-2 hover:border-blue-500 transition-all"
         >
           <HiFilter className="w-5 h-5" />
           Filters
@@ -59,7 +60,7 @@ export default function SearchAndFilter({
       </div>
 
       {isFilterOpen && (
-        <div className="bg-white p-4 rounded-lg border border-black-200 space-y-4">
+        <div className="bg-white p-4 rounded-lg border border-gray-300 space-y-4">
           <div>
             <h3 className="font-medium mb-2">Categories</h3>
             <div className="flex flex-wrap gap-2">
@@ -94,7 +95,7 @@ export default function SearchAndFilter({
             <h3 className="font-medium mb-2">Sort By</h3>
             <select
               onChange={(e) => onSortChange(e.target.value)}
-              className="w-full px-3 py-2 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
+              className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
             >
               {sortOptions.map((option) => (
                 <option key={option.value} value={option.value}>
@@ -107,4 +108,4 @@ export default function SearchAndFilter({
       )}
     </div>
   );
-} 
+}

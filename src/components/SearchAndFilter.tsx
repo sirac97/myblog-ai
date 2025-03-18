@@ -18,12 +18,14 @@ export default function SearchAndFilter({
 }: SearchAndFilterProps) {
   const [searchQuery, setSearchQuery] = useState('');
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedSort, setSelectedSort] = useState('latest');
 
   // Debounce search
   useEffect(() => {
     const timer = setTimeout(() => {
       onSearch(searchQuery);
-    }, 300);
+    }, 400);
 
     return () => clearTimeout(timer);
   }, [searchQuery, onSearch]);
@@ -67,8 +69,11 @@ export default function SearchAndFilter({
               {categories.map((category) => (
                 <button
                   key={category}
-                  onClick={() => onCategoryChange(category)}
-                  className="px-3 py-1 rounded-full text-sm bg-gray-100 hover:bg-blue-100 transition-colors"
+                  onClick={() => {
+                    setSelectedCategory(category);
+                    onCategoryChange(category);
+                  }}
+                  className={`px-3 py-1 rounded-full text-sm ${selectedCategory === category ? 'bg-blue-200' : 'bg-gray-200'} hover:bg-blue-300 transition-colors`}
                 >
                   {category}
                 </button>
@@ -83,7 +88,7 @@ export default function SearchAndFilter({
                 <button
                   key={tag}
                   onClick={() => onTagSelect(tag)}
-                  className="px-3 py-1 rounded-full text-sm bg-gray-100 hover:bg-blue-100 transition-colors"
+                  className="px-3 py-1 rounded-full text-sm bg-gray-200 hover:bg-blue-200 transition-colors"
                 >
                   #{tag}
                 </button>
@@ -94,7 +99,11 @@ export default function SearchAndFilter({
           <div>
             <h3 className="font-medium mb-2">Sort By</h3>
             <select
-              onChange={(e) => onSortChange(e.target.value)}
+              value={selectedSort}
+              onChange={(e) => {
+                setSelectedSort(e.target.value);
+                onSortChange(e.target.value);
+              }}
               className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
             >
               {sortOptions.map((option) => (

@@ -2,16 +2,17 @@ name: Daily Commit
 
 on:
   schedule:
-    - cron: "0 12 * * *"  
+    - cron: "0 12 * * *"
+  workflow_dispatch:
 
 jobs:
   commit:
     runs-on: ubuntu-latest
     steps:
-      - name: Clon the repo 
+      - name: Clone the repo 
         uses: actions/checkout@v3
 
-      - name: Update the file 
+      - name: Update the file
         run: echo "$(date)" > last_commit.txt
           
       - name: Değişiklikleri Git'e Kaydet
